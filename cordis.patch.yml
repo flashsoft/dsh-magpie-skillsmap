@@ -2,5 +2,3 @@
 - insert:
     - id: magpie-skillsmap
       name: 'dsh-magpie-skillsmap'
-      config:
-        indexPath: /Users/flashsoft/.dsh/dsh-magpie-skillmap/skills.json

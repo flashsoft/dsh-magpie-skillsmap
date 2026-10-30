@@ -38,30 +38,26 @@
 
 明确要求调整现有技能导航归属时，可在 apply payload 中加入 `assign`；`assign` 只修改现有条目的 `scene/sceneIds`，不允许用于新增或描述变更，也不会复制技能或使用记录。
 
-## 安装（当前 desktop profile）
+## 安装
 
 ```sh
-# 1) 安装包（本地路径）
-node ~/.dsh/profiles/node_modules/@deepseek-ai/dsh/lib/bin.js \
-  plugin --profile desktop add /Users/flashsoft/workspace/dsh-magpie-skillmap
-
-# 2) 在 ~/.dsh/profiles/desktop/cordis.patch.yml 增加：
-# - insert:
-#     - id: magpie-skillsmap
-#       name: 'dsh-magpie-skillsmap'
-#       config:
-#         indexPath: /Users/flashsoft/.dsh/dsh-magpie-skillmap/skills.json
-
-# 3) 重启 DSH
+dsh plugin add https://github.com/flashsoft/dsh-magpie-skillsmap
 ```
 
-也可以把包直接软链到 `~/.dsh/profiles/desktop/node_modules/`，再按第 2 步加 insert。
+如果当前环境没有全局 `dsh` 命令，可使用 desktop profile 中的 CLI：
+
+```sh
+node ~/.dsh/profiles/node_modules/@deepseek-ai/dsh/lib/bin.js \
+  plugin --profile desktop add https://github.com/flashsoft/dsh-magpie-skillsmap
+```
+
+仓库根目录已包含 `dsh.bundle` 所需的 `cordis.patch.yml`，安装后重启 DSH。索引默认写入 `~/.dsh/dsh-magpie-skillmap/skills.json`；需要自定义时再通过插件配置设置 `indexPath`。
 
 ## 验证
 
 ```sh
-cd /Users/flashsoft/workspace/dsh-magpie-skillmap
-node --test test/*.test.mjs
+pnpm install
+pnpm test
 ```
 
 覆盖：`$name` 解析与注入、路由、`/skillsmap` 命令注册、二级面板渲染、token 插入、增量扫描与写回、无变化跳过、批量删除保护、整理与反馈串行写入、AI 整理 prompt 和 API。
@@ -83,5 +79,6 @@ node --test test/*.test.mjs
 - `lib/taxonomy.js`：插件持有的 6 族 / 29 场景与空索引初始化
 - `lib/client.js`：浏览器 bundle（`/skillsmap` 命令 + 技能与整理面板）
 - `cordis.patch.yml`：bundle patch
+- `screenshots.json`：插件市场截图声明
 - `test/`：Node 单测
 - `docs/`：验证截图
