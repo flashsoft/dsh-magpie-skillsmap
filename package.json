@@ -1,5 +1,5 @@
 {
-  "name": "dsh-skillsmap",
+  "name": "dsh-magpie-skillsmap",
   "version": "0.0.1",
   "description": "DSH demo: pick magpie skills by scene and inject them into the current turn with /name.",
   "type": "module",

@@ -1,6 +1,6 @@
-# dsh-skillsmap bundle patch
+# dsh-magpie-skillsmap bundle patch
 - insert:
     - id: magpie-skillsmap
-      name: 'dsh-skillsmap'
+      name: 'dsh-magpie-skillsmap'
       config:
         indexPath: /Users/flashsoft/.dsh/dsh-magpie-skillmap/skills.json

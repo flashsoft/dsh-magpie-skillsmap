@@ -1,4 +1,4 @@
-# dsh-skillsmap (demo)
+# dsh-magpie-skillsmap (demo)
 
 在 DSH 里按「6 族 / 29 场景」挑选 magpie 技能，把 `/skill-name` 插进当前消息；发送时由 host 插件把对应 `SKILL.md` 注入本轮。
 
@@ -48,7 +48,7 @@ node ~/.dsh/profiles/node_modules/@deepseek-ai/dsh/lib/bin.js \
 # 2) 在 ~/.dsh/profiles/desktop/cordis.patch.yml 增加：
 # - insert:
 #     - id: magpie-skillsmap
-#       name: 'dsh-skillsmap'
+#       name: 'dsh-magpie-skillsmap'
 #       config:
 #         indexPath: /Users/flashsoft/.dsh/dsh-magpie-skillmap/skills.json
 
